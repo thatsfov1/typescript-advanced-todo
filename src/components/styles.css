@@ -1,0 +1,113 @@
+.input_box{
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 60%;
+}
+
+.input{
+    background-color: white;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    padding: 15px;
+    width: 100%;
+    font-size: 20px;
+
+}
+
+.input_button{
+    position: absolute;
+    right: 0;
+    background-color: #a79dd7;
+    padding: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    border: none;
+    color: white;
+    font-size: 20px;
+    border-radius: 0 20px 20px 0;
+    transition: all .3s ;
+}
+
+.input_button:hover{
+    transform: scale(1.05);
+}
+
+.input_button:active{
+    transform: scale(1.02);
+    filter: brightness(105%);
+}
+
+.todos{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.single_todo{
+    width: 29.5%;
+    display: flex;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.single_todo_text{
+    flex: 1;
+    padding: 5px;
+    border: none;
+    font-size: 20px;
+    outline: none;
+    border-radius: 10px;
+}
+
+
+.icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    font-size: 18px;
+    height: 35px;
+    border-radius: 50%;
+    transition: all .3s ease;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.icon:hover{
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.75);
+    transform: scale(1.01);
+}
+
+.delete{
+    background-color: #fff2f6;
+}
+
+.edit{
+    background-color: #ecf0ff;
+}
+
+.done{
+    background-color: #f4fffd;
+}
+
+@media (max-width: 1200px) {
+    .single_todo{
+        width: 40%;
+    }
+}
+
+@media (max-width: 700px) {
+    .input_box{
+        width: 95%;
+    }
+    .todos{
+        width: 95%;
+    }
+    .single_todo{
+        width: 100%;
+    }
+}
