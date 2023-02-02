@@ -18,8 +18,8 @@
 
 .input_button{
     position: absolute;
-    right: 0;
-    background-color: #a79dd7;
+    right: -1px;
+    background-color: #424242;
     padding: 15px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     border: none;
@@ -38,20 +38,45 @@
     filter: brightness(105%);
 }
 
-.todos{
-    width: 90%;
+.container{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    margin-top: 10px;
+    width: 95%;
+    justify-content: space-between;
+    align-items: flex-start;
+
+}
+
+.todos{
+    width: 47.5%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(211, 239, 211, 0.8);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.remove{
+    background-color: rgba(241, 191, 207, 0.71);
+}
+
+.todos_header{
+    font-size: 30px;
+    color: #ffffff;
 }
 
 .single_todo{
-    width: 29.5%;
     display: flex;
     padding: 15px;
     margin-top: 15px;
     border-radius: 30px;
     background-color: rgba(255, 255, 255, 0.5);
+    transition: .2s;
+}
+
+.single_todo:hover{
+    box-shadow: 0 0 5px rgba(0,0,0, 0.2);
+    transform: scale(1.02);
 }
 
 .single_todo_text{
@@ -94,9 +119,9 @@
     background-color: #f4fffd;
 }
 
-@media (max-width: 1200px) {
-    .single_todo{
-        width: 40%;
+@media (max-width: 1100px) {
+    .todos{
+        width: 45%;
     }
 }
 
@@ -106,8 +131,18 @@
     }
     .todos{
         width: 95%;
+        margin-bottom: 10px;
     }
-    .single_todo{
-        width: 100%;
+    .container{
+        width: 95%;
+        flex-direction: column;
     }
+}
+
+.active{
+    background-color: rgba(211, 239, 211, 0.95);
+}
+
+.active_remove{
+    background-color: rgba(241, 191, 207, 0.85);
 }

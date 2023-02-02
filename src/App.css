@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    background: linear-gradient(24deg, rgba(146, 143, 162, 1) 0%, rgba(88, 80, 125, 1) 51%, rgba(27, 15, 82, 1) 100%);
+    background: linear-gradient(21deg, rgba(148,148,148,1) 0%, rgba(83,83,83,1) 44%, rgba(41,41,41,1) 100%);
 }
 
 .heading {

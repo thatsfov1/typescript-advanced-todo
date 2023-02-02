@@ -2,15 +2,16 @@ import React, {useEffect, useRef, useState} from 'react'
 import './styles.css'
 import {Todo} from "../model";
 import {BiEditAlt, MdDone, RiDeleteBin7Line} from "react-icons/all";
-import TodosList from "./TodosList";
+import {Draggable} from "react-beautiful-dnd";
 
 type Props = {
+  index:number,
   todo: Todo,
   todos:Todo[],
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>
 }
 
-const SingleTodo = ({todo,todos,setTodos}:Props) => {
+const SingleTodo = ({index, todo,todos,setTodos}:Props) => {
 
     const handleDone = (id:number) => {
         setTodos
@@ -40,8 +41,11 @@ const SingleTodo = ({todo,todos,setTodos}:Props) => {
 
 
     return (
-    <form className='single_todo' onSubmit={(e) => handleEdit(e, todo.id)}>
-
+        <Draggable draggableId={todo.id.toString()} index={index}>
+            {(provided)=>(
+    <form className='single_todo' ref={provided.innerRef}
+          {...provided.draggableProps} {...provided.dragHandleProps}
+          onSubmit={(e) => handleEdit(e, todo.id)}>
         {
             edit ? (
                 <input ref={inputRef} value={editTodo} onChange={(e) => setEditTodo(e.target.value)}
@@ -57,7 +61,6 @@ const SingleTodo = ({todo,todos,setTodos}:Props) => {
                 )
             )
         }
-
       <div style={{display:'flex'}}>
         <span className="icon edit" onClick={() => {
             if (!edit && !todo.isDone) setEdit(!edit)
@@ -72,6 +75,8 @@ const SingleTodo = ({todo,todos,setTodos}:Props) => {
         </span>
       </div>
     </form>
+            )}
+        </Draggable>
   )
 }
 
